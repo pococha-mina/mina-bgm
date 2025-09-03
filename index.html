@@ -19,8 +19,24 @@
       color: #333;
     }
 
+    #login {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #login input {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    #login button {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
     .grid {
-      display: grid;
+      display: none; /* 最初は非表示 */
       grid-template-columns: repeat(4, 1fr); /* 横4列 */
       grid-template-rows: repeat(9, 1fr);   /* 縦9行 (36ボタン) */
       height: calc(100vh - 80px); /* タイトル分を引く */
@@ -71,55 +87,56 @@
 </head>
 <body>
   <h1>Mina BGM</h1>
-  <div class="grid">
+
+  <!-- パスワード入力 -->
+  <div id="login">
+    <p>パスワードを入力してください：</p>
+    <input type="password" id="passwordInput">
+    <button onclick="checkPassword()">ログイン</button>
+  </div>
+
+  <!-- BGMボタン -->
+  <div class="grid" id="buttons">
     <!-- 1行目 001〜004 -->
     <div class="row1"><button onclick="playSound('001.m4a')">お疲れ</button></div>
     <div class="row1"><button onclick="playSound('002.m4a')">おかえり</button></div>
     <div class="row1"><button onclick="playSound('003.m4a')">おやすみ</button></div>
     <div class="row1"><button onclick="playSound('004.m4a')">なんでだよ</button></div>
-
     <!-- 2行目 005〜008 -->
     <div class="row2"><button onclick="playSound('005.m4a')">寝ろ！</button></div>
     <div class="row2"><button onclick="playSound('006.m4a')">始まったとこ</button></div>
     <div class="row2"><button onclick="playSound('007.m4a')">ねぇー！</button></div>
     <div class="row2"><button onclick="playSound('008.m4a')">何これ！</button></div>
-
     <!-- 3行目 009〜012 -->
     <div class="row3"><button onclick="playSound('009.m4a')">エルおめ</button></div>
     <div class="row3"><button onclick="playSound('010.m4a')">プチおめ</button></div>
     <div class="row3"><button onclick="playSound('011.m4a')">コアおめ</button></div>
     <div class="row3"><button onclick="playSound('012.m4a')">エンダー</button></div>
-
     <!-- 4行目 013〜016 -->
     <div class="row4"><button onclick="playSound('013.m4a')">尊い</button></div>
     <div class="row4"><button onclick="playSound('014.m4a')">ナイトに！</button></div>
     <div class="row4"><button onclick="playSound('015.m4a')">ありがとう</button></div>
     <div class="row4"><button onclick="playSound('016.m4a')">乾杯</button></div>
-
     <!-- 5行目 017〜020 -->
     <div class="row5"><button onclick="playSound('017.m4a')">可愛い</button></div>
     <div class="row5"><button onclick="playSound('018.m4a')">うわぁ</button></div>
     <div class="row5"><button onclick="playSound('019.m4a')">うおぉ</button></div>
     <div class="row5"><button onclick="playSound('020.m4a')">ちーん</button></div>
-
     <!-- 6行目 021〜024 -->
     <div class="row6"><button onclick="playSound('021.m4a')">シンデレラ</button></div>
     <div class="row6"><button onclick="playSound('022.m4a')">きゅん</button></div>
     <div class="row6"><button onclick="playSound('023.m4a')">ガオー</button></div>
     <div class="row6"><button onclick="playSound('024.m4a')">何ですか？</button></div>
-
     <!-- 7行目 025〜028 -->
     <div class="row7"><button onclick="playSound('025.m4a')">何したの</button></div>
     <div class="row7"><button onclick="playSound('026.m4a')">どれ？</button></div>
     <div class="row7"><button onclick="playSound('027.m4a')">何それ？</button></div>
     <div class="row7"><button onclick="playSound('028.m4a')">へ？</button></div>
-
     <!-- 8行目 029〜032 -->
     <div class="row8"><button onclick="playSound('029.m4a')">どゆこと？</button></div>
     <div class="row8"><button onclick="playSound('030.m4a')">怒るよ</button></div>
     <div class="row8"><button onclick="playSound('031.m4a')">笑</button></div>
     <div class="row8"><button onclick="playSound('032.m4a')">笑える</button></div>
-
     <!-- 9行目 033〜036 -->
     <div class="row9"><button onclick="playSound('033.m4a')">へぇー！</button></div>
     <div class="row9"><button onclick="playSound('034.m4a')">気をつけな</button></div>
@@ -128,6 +145,18 @@
   </div>
 
   <script>
+    const correctPassword = "mina123"; // パスワードをここで設定
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      if(input === correctPassword){
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('buttons').style.display = 'grid';
+      } else {
+        alert('パスワードが違います💦');
+      }
+    }
+
     function playSound(file) {
       const audio = new Audio(file);
       audio.play();
