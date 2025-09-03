@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Mina BGM</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 6vw;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 横4列 */
+      grid-template-rows: repeat(9, 1fr);   /* 縦9行 (36ボタン) */
+      height: calc(100vh - 80px); /* タイトル分を引く */
+      width: 100vw;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+      font-size: 4vw;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px; /* ぷっくり丸 */
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      word-wrap: break-word;
+      white-space: normal;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    .empty {
+      background: transparent;
+      border: none;
+      cursor: default;
+    }
+
+    /* 1行ごとに色分け */
+    .row1 button { background: #4CAF50; } /* 緑 */
+    .row2 button { background: #2196F3; } /* 青 */
+    .row3 button { background: #FF9800; } /* オレンジ */
+    .row4 button { background: #E91E63; } /* ピンク */
+    .row5 button { background: #9C27B0; } /* 紫 */
+    .row6 button { background: #009688; } /* シアン */
+    .row7 button { background: #FF5722; } /* 赤橙 */
+    .row8 button { background: #3F51B5; } /* 濃青 */
+    .row9 button { background: #607D8B; } /* グレー */
+
+    button:hover { filter: brightness(1.1); }
+  </style>
+</head>
+<body>
+  <h1>Mina BGM</h1>
+  <div class="grid">
+    <!-- 1行目 001〜004 -->
+    <div class="row1"><button onclick="playSound('001.m4a')">お疲れ</button></div>
+    <div class="row1"><button onclick="playSound('002.m4a')">おかえり</button></div>
+    <div class="row1"><button onclick="playSound('003.m4a')">おやすみ</button></div>
+    <div class="row1"><button onclick="playSound('004.m4a')">なんでだよ</button></div>
+
+    <!-- 2行目 005〜008 -->
+    <div class="row2"><button onclick="playSound('005.m4a')">寝ろ！</button></div>
+    <div class="row2"><button onclick="playSound('006.m4a')">始まったとこ</button></div>
+    <div class="row2"><button onclick="playSound('007.m4a')">ねぇー！</button></div>
+    <div class="row2"><button onclick="playSound('008.m4a')">何これ！</button></div>
+
+    <!-- 3行目 009〜012 -->
+    <div class="row3"><button onclick="playSound('009.m4a')">エルおめ</button></div>
+    <div class="row3"><button onclick="playSound('010.m4a')">プチおめ</button></div>
+    <div class="row3"><button onclick="playSound('011.m4a')">コアおめ</button></div>
+    <div class="row3"><button onclick="playSound('012.m4a')">エンダー</button></div>
+
+    <!-- 4行目 013〜016 -->
+    <div class="row4"><button onclick="playSound('013.m4a')">尊い</button></div>
+    <div class="row4"><button onclick="playSound('014.m4a')">ナイトに！</button></div>
+    <div class="row4"><button onclick="playSound('015.m4a')">ありがとう</button></div>
+    <div class="row4"><button onclick="playSound('016.m4a')">乾杯</button></div>
+
+    <!-- 5行目 017〜020 -->
+    <div class="row5"><button onclick="playSound('017.m4a')">可愛い</button></div>
+    <div class="row5"><button onclick="playSound('018.m4a')">うわぁ</button></div>
+    <div class="row5"><button onclick="playSound('019.m4a')">うおぉ</button></div>
+    <div class="row5"><button onclick="playSound('020.m4a')">ちーん</button></div>
+
+    <!-- 6行目 021〜024 -->
+    <div class="row6"><button onclick="playSound('021.m4a')">シンデレラ</button></div>
+    <div class="row6"><button onclick="playSound('022.m4a')">きゅん</button></div>
+    <div class="row6"><button onclick="playSound('023.m4a')">ガオー</button></div>
+    <div class="row6"><button onclick="playSound('024.m4a')">何ですか？</button></div>
+
+    <!-- 7行目 025〜028 -->
+    <div class="row7"><button onclick="playSound('025.m4a')">何したの</button></div>
+    <div class="row7"><button onclick="playSound('026.m4a')">どれ？</button></div>
+    <div class="row7"><button onclick="playSound('027.m4a')">何それ？</button></div>
+    <div class="row7"><button onclick="playSound('028.m4a')">へ？</button></div>
+
+    <!-- 8行目 029〜032 -->
+    <div class="row8"><button onclick="playSound('029.m4a')">どゆこと？</button></div>
+    <div class="row8"><button onclick="playSound('030.m4a')">怒るよ</button></div>
+    <div class="row8"><button onclick="playSound('031.m4a')">笑</button></div>
+    <div class="row8"><button onclick="playSound('032.m4a')">笑える</button></div>
+
+    <!-- 9行目 033〜036 -->
+    <div class="row9"><button onclick="playSound('033.m4a')">へぇー！</button></div>
+    <div class="row9"><button onclick="playSound('034.m4a')">気をつけな</button></div>
+    <div class="row9"><button onclick="playSound('035.m4a')">おつピカ</button></div>
+    <div class="row9"><button onclick="playSound('036.m4a')">こらピカ</button></div>
+  </div>
+
+  <script>
+    function playSound(file) {
+      const audio = new Audio(file);
+      audio.play();
+    }
+  </script>
+</body>
+</html>
